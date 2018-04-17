@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Layout Page</title>
-    </head>
-    <body>
-        <h1>Estas visualizando layout</h1>
-        {% block content %}
-        {% endblock %}
-    </body>
+<!doctype html>
+<html lang="es">
+	<head>
+		{% include '_head.html' %}
+	</head>
+	<body>
+		<div id="layout">
+			{% include '_menu.html' %}
+			
+			<div id="main">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+		
+		{% include '_bodyscripts.html' %}
+	</body>
 </html>

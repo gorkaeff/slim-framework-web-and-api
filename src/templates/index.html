@@ -1,8 +1,25 @@
 {% extends "_layout.html" %}
 
+{% block headTitle %}Raiz de la home{% endblock %}
+
 {% block content %}
-<h1>Index Of my Web "/"</h1>
-<ul>
-    <li>Hello LI Element {{ data }}</li>
-</ul>
+	<div class="header">
+		<h1>Index</h1>
+		<h2>Subtitle Index</h2>
+	</div>
+
+	<div class="content">
+		<h2 class="content-subhead">Api Demo</h2>
+		<p>
+			We have some fruits like :
+			{% for fruit in fruits %}
+				{{ fruit.name }}
+			{% endfor %}
+		</p>
+		<p>Enlaces de prueba para la API - {{data}}</p>
+		<ul>
+			<li><a href="/api/fruits">API All FRUITS</a></li>
+			<li><a href="/api/fruit/1">API FRUIT 2 (Oranges)</a></li>
+		</ul>
+	</div>
 {% endblock %}
