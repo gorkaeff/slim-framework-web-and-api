@@ -27,6 +27,7 @@ $container['logger'] = function($c) {
     return $logger;
 };
 
+//HOME - ROOT
 $app->get('/', function (Request $request, Response $response) {
 	//Save in log the request
 	$this->logger->addInfo("View[Root]");
@@ -39,6 +40,7 @@ $app->get('/', function (Request $request, Response $response) {
     return $response;
 });
 
+//CONTACT
 $app->get('/contact', function (Request $request, Response $response) {
 	//Save in log the request
 	$this->logger->addInfo("View[Contact]");
@@ -46,26 +48,35 @@ $app->get('/contact', function (Request $request, Response $response) {
     return $response;
 });
 
+//API
 $app->group('/api', function() {
+	// Get all fruits (/api/fruits)
     $this->get('/fruits', function ($request, $response, $args) {
 		$this->logger->addInfo("API[fruits]");
 		//example
 		$fruits = [
 			'name' => 'Fruteria Demo', 
-			'fruits' => [['name' => 'Apples', 'price' => 0.7],['name' => 'Bananas', 'price' => 1.1],['name' => 'Oranges', 'price' => 1.5]]];
+			'fruits' => [
+				['name' => 'Apples', 'price' => 0.7],
+				['name' => 'Bananas', 'price' => 1.1],
+				['name' => 'Oranges', 'price' => 1.5]
+			]
+		];
 		return $response->withJson($fruits);
     });
+
+    // Get fruit (/api/fruit/1)
     $this->get('/fruit/{id:[0-9]+}', function ($request, $response, $args) {
 		$this->logger->addInfo("API[fruit]", $args);
 		$id = $args['id'];
 		//example
-        $fruits = [
+		$fruits = [
 			['name' => 'Apples', 'price' => 0.7],
 			['name' => 'Bananas', 'price' => 1.1],
 			['name' => 'Oranges', 'price' => 1.5]
 		];
 		return $fruits[$id] == null ? $response->withJson("Error", 400) : $response->withJson($fruits[$id]);
-    });
+	});
 });
 
 $app->run();
