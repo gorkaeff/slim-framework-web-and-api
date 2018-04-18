@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="es">
 	<head>
-		{% include '_head.html' %}
+		{% include 'shared/_head.html' %}
 	</head>
 	<body>
 		<div id="layout">
-			{% include '_menu.html' %}
+			{% include 'shared/_menu.html' %}
 			
 			<div id="main">
 				{% block content %}{% endblock %}
 			</div>
 		</div>
 		
-		{% include '_bodyscripts.html' %}
+		{% include 'shared/_bodyscripts.html' %}
 	</body>
 </html>

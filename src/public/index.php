@@ -13,7 +13,7 @@ $container = $app->getContainer();
 
 //TEMPLATES -- Ruta
 $container['view'] = function ($c) {
-    $view = new \Slim\Views\Twig("../templates/", []);
+    $view = new \Slim\Views\Twig("../views/", []);
     $basePath = rtrim(str_ireplace('index.php', '', $c['request']->getUri()->getBasePath()), '/');
     $view->addExtension(new \Slim\Views\TwigExtension($c['router'], $basePath));
     return $view;
@@ -36,7 +36,7 @@ $app->get('/', function (Request $request, Response $response) {
 		['name' => 'Bananas', 'price' => 1.1],
 		['name' => 'Oranges', 'price' => 1.5]
 	];
-    $response = $this->view->render($response, "index.html", ["data" => "This is a demo", "menu" => "home", "fruits" => $fruits]);
+    $response = $this->view->render($response, "home/index.html", ["data" => "This is a demo", "menu" => "home", "fruits" => $fruits]);
     return $response;
 });
 
@@ -44,7 +44,7 @@ $app->get('/', function (Request $request, Response $response) {
 $app->get('/contact', function (Request $request, Response $response) {
 	//Save in log the request
 	$this->logger->addInfo("View[Contact]");
-    $response = $this->view->render($response, "contact.html", ["data" => "Contact Page :D", "menu" => "contact"]);
+    $response = $this->view->render($response, "contact/contact.html", ["data" => "Contact Page :D", "menu" => "contact"]);
     return $response;
 });
 
