@@ -3,15 +3,20 @@ namespace Models;
 
 class FruitEntity
 {
+    protected $id;
     protected $name;
     protected $price;
 
     public function __construct(array $data) {
-        // no id if we're creating
-        if(isset($data['name'])) {
-            $this->name = $data['name'];
+        if(isset($data['id'])) {
+            $this->id = $data['id'];
         }
+        $this->name = $data['name'];
         $this->price = $data['price'];
+    }
+
+    public function getId() {
+        return $this->id;
     }
 
     public function getName() {

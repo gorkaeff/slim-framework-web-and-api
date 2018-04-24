@@ -14,7 +14,7 @@
 			We have some fruits like :
 			<ul>
 			{% for fruit in fruits %}
-				<li>{{ fruit.name }} ({{ fruit.price }} €)</li>
+				<li>La fruta con ID: {{ fruit.getId() }} es <span class="negrita">{{ fruit.getName() }}</span> y vale ({{ fruit.getPrice() }} €)</li>
 			{% endfor %}
 			</ul>
 		</p>
