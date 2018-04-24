@@ -12,9 +12,11 @@
 		<h2 class="content-subhead">Api Demo</h2>
 		<p>
 			We have some fruits like :
+			<ul>
 			{% for fruit in fruits %}
-				{{ fruit.name }}
+				<li>{{ fruit.name }} ({{ fruit.price }} €)</li>
 			{% endfor %}
+			</ul>
 		</p>
 		<p>Enlaces de prueba para la API - {{data}}</p>
 		<ul>

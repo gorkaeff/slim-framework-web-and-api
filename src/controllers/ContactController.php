@@ -1,4 +1,6 @@
 <?php
+namespace Controllers;
+
 class ContactController extends Controller
 {
 	protected $container;

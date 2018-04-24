@@ -1,4 +1,6 @@
 <?php
+namespace Controllers;
+
 class ApiFruitController extends Controller
 {
 	protected $container;

@@ -1,4 +1,6 @@
 <?php
+namespace Controllers;
+
 class Controller
 {
 	protected $container;

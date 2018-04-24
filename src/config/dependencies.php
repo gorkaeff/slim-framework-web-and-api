@@ -18,13 +18,13 @@ $container['logger'] = function($c) {
 };
 
 $container['HomeController'] = function($container) {
-	return new \src\controllers\HomeController($container);
+	return new \Controllers\HomeController($container);
 };
 
 $container['ContactController'] = function($container) {
-	return new \src\controllers\ContactController($container);
+	return new \Controllers\ContactController($container);
 };
 
 $container['ApiFruitController'] = function($container) {
-	return new \src\controllers\ApiFruitController($container);
+	return new \Controllers\ApiFruitController($container);
 };
