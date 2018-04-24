@@ -3,9 +3,9 @@ namespace Models;
 
 class FruitEntity
 {
-    protected $id;
-    protected $name;
-    protected $price;
+    public $id;
+    public $name;
+    public $price;
 
     public function __construct(array $data) {
         if(isset($data['id'])) {

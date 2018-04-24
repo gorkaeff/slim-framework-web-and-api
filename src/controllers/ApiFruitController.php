@@ -12,14 +12,8 @@ class ApiFruitController extends Controller
 	public function getFruits($request, $response, $args) {
 		$this->logger->addInfo("API[fruits]");
 		//example
-		$fruits = [
-			'name' => 'Fruteria Demo Controller', 
-			'fruits' => [
-				['name' => 'Apples', 'price' => 0.7],
-				['name' => 'Bananas', 'price' => 1.1],
-				['name' => 'Oranges', 'price' => 1.5]
-			]
-		];
+		$fruitModel = new \Models\FruitModel();
+		$fruits = $fruitModel->getFruits();
 		return $response->withJson($fruits);
 	}
 
@@ -29,11 +23,8 @@ class ApiFruitController extends Controller
 		$id = $args['id'];
 
 		//example
-		$fruits = [
-			['name' => 'Apples', 'price' => 2],
-			['name' => 'Bananas', 'price' => 3],
-			['name' => 'Oranges', 'price' => 4]
-		];
+		$fruitModel = new \Models\FruitModel();
+		$fruits = $fruitModel->getFruits();
 		return $fruits[$id] == null ? $response->withJson("Error", 400) : $response->withJson($fruits[$id]);
 	}
 }
