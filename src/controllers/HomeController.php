@@ -13,11 +13,8 @@ class HomeController extends Controller
 		//Save in log the request
 		$this->logger->addInfo("View[Root]");
 
-		$fruits = [
-			['name' => 'Apples', 'price' => 0.7],
-			['name' => 'Bananas', 'price' => 1.1],
-			['name' => 'Oranges', 'price' => 1.5]
-		];
+		$fruitModel = new \Models\FruitModel();
+		$fruits = $fruitModel->getFruits();
 
 		$response = $this->view->render(
 			$response, 
