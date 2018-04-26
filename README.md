@@ -12,3 +12,5 @@ Ejemplo con Slim Framework + PureCSS para crear una WEB con un menu de Home y Co
 * git push heroku master
 * heroku ps:scale web=1
 * heroku open
+
+Ver demo: https://polar-mesa-88572.herokuapp.com/
